@@ -1,0 +1,43 @@
+@import './variables';
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Do+Hyeon&family=Suez+One&family=Sunflower:wght@300&display=swap');
+
+
+.TodoListInput {
+  display: flex;
+  width: 100%;
+  
+  input {
+    font-family: 'Do Hyeon';
+    font-size: 1.7rem;
+    
+    border: none;
+    outline: none;
+    background: none;
+    
+    background-color: $INPUT_COLOR;
+    padding: 1rem;
+    font-size: 1.6rem;
+    flex: 1;
+    color: white;
+    
+    &::placeholder {
+      font-family: 'Do Hyeon';
+      font-size: 1.7rem;
+      font-weight: 400;
+      color: rgb(223, 223, 223);
+    }
+  }
+
+  button {
+    font-size: 1.6rem;
+    background-color: $INPUT_BTN_COLOR;
+    color: white;
+    padding: 1rem;
+    border: none;
+    outline: none;
+
+    &:hover {
+      background-color: #5f636b;
+    }
+  }
+}

@@ -1,0 +1,43 @@
+@import './variables';
+
+
+.TodoItem {
+  display: flex;
+  padding: 1rem;
+
+  .checkbox {
+    display: flex;
+    flex: 1;
+    font-size: 1.3rem;
+
+    align-items: center;
+
+    svg {
+      font-size: 1.6rem;
+    }
+
+    .text {
+      margin-left: 1rem;
+    }
+
+    &.checked {
+      svg {
+        color: $title_color;
+      }
+
+      color: rgb(73, 72, 72);
+      text-decoration: line-through;
+    }
+  }
+  
+  .remove {
+    svg {
+      color: $title_color;
+      font-size: 1.5rem;
+    }
+  }
+
+  & + & {
+    border-top: 1px solid #ffa454;
+  }
+}

@@ -1,0 +1,56 @@
+@import './variables';
+@import './reset';
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Suez+One&display=swap');
+
+
+body {
+  background-color: $BG_COLOR;
+}
+
+html {
+  font-size: 10px;
+}
+
+
+
+.TodoListTemplate {
+  font-size: 1.6rem;
+  width: 54.1rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 6rem;
+  border-radius: 5px;
+
+  .app-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: $MAIN_COLOR;
+    height: 7rem;
+    font-family: 'Suez One';
+    font-size: 3rem;
+    font-weight: 400;
+
+    user-select: none;
+  }
+
+  .content {
+    background-color: white;
+  }
+}
+
+.creator {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+  font-size: 1.4rem;
+  
+  div {
+    align-self: center;
+  }
+
+  svg {
+    font-size: 2rem;
+  }
+}

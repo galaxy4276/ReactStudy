@@ -1,0 +1,37 @@
+@import './variables';
+
+.TodoInsert {
+  display: flex;
+
+  input {
+    background: $middle_color;
+
+    border: none;
+    outline: none;
+    padding: 1rem;
+
+    flex: 1;
+    
+    &::placeholder {
+      color: #af4f37;
+    }
+  }
+
+  button {
+    border: none;
+    outline: none;
+    padding: 1rem;
+
+    background: white;
+
+
+    &:hover {
+      background: rgb(216, 216, 216);
+    }
+
+    svg {
+      font-size: 1.5rem;
+
+    }
+  }
+}

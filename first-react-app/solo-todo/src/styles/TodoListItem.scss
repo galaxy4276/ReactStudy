@@ -1,0 +1,64 @@
+@import './variables';
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Do+Hyeon&family=Suez+One&family=Sunflower:wght@300&display=swap');
+
+
+.TodoList-virtualized {
+  & + & {
+    border-top: 1px solid #dee2e6;
+  }
+
+  &:nth-child(even) {
+    background: #f8f9fa;
+  }
+}
+
+
+.TodoListItem {
+  user-select: none;
+
+  
+  font-family: 'Do Hyeon';
+  font-weight: 300;
+
+  display: flex;
+
+  padding: 1rem;
+  
+
+
+  .checkbox {
+    cursor: pointer;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    
+    svg {
+      font-size: 2rem;
+    }
+    
+    .text {
+      font-size: 1.9rem;
+      margin-left: 0.8rem;
+    }
+
+    &.checked {
+      svg {
+        color: #065446;
+      }
+      color: rgb(116, 116, 116);
+      text-decoration: line-through;
+    }
+  }
+
+  .remove {
+    svg {
+      color: #065446;
+      font-size: 2rem;
+
+      &:hover {
+        color: #197163;
+      }
+    }
+  }
+
+}
