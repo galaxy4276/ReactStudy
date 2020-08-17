@@ -1,0 +1,29 @@
+html {
+  font-size: 10px;
+}
+
+body {
+  background: #f7f2e7;
+}
+
+.Template {
+  width: 40rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 6rem;
+  
+  .app-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: #32e0c4;
+    height: 6rem;
+    font-size: 2rem;
+    font-weight: 600;
+  }
+
+  .content {
+    background: white;
+  }
+}

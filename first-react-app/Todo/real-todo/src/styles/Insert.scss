@@ -1,0 +1,30 @@
+.Insert {
+  display: flex;
+  
+  input {
+    border: none;
+    outline: none;
+    flex: 1;
+    padding: 0.7rem;
+    color: rgb(168, 168, 168);
+
+    background: #393e46;
+
+    &::placeholder {
+      color: rgb(168, 168, 168);
+    }
+  }
+
+  button {
+    border: none;
+    outline: none;
+    padding: 0.7rem;
+
+    color: white;
+    background-color: #222831;
+
+    svg {
+      font-size: 1rem;
+    }
+  }
+}
