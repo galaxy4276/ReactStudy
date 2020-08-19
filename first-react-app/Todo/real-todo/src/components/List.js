@@ -5,9 +5,9 @@ import Item from './Item';
 
 const List = ({ todos }) => {
   return (
-    <div>
+    <div className="List">
       {
-        todos.map(todo => (<Item key={ todo.id } text={ todo.text }/>))
+        todos.map(todo => (<Item key={ todo.id } todo={ todo }/>))
       }
     </div>
   );

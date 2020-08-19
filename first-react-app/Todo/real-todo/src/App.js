@@ -4,7 +4,6 @@ import Insert from './components/Insert';
 import List from './components/List';
 
 
-
 function App() {
   const [todos, setTodos] = useState([
     {
@@ -21,7 +20,7 @@ function App() {
 
   const nextId = useRef(2501);
 
-  const onSubmit = useCallback(
+  const onInsert = useCallback(
     text => {
       const todo = {
         id: nextId.current,
@@ -30,13 +29,14 @@ function App() {
       };
 
       setTodos(() => todos.concat(todo));
+      nextId.current++;
     }, []
   );
 
 
   return (
     <Template>
-      <Insert onSubmit={ onSubmit } />
+      <Insert onSubmit={ onInsert } />
       <List todos={ todos } />
     </Template>
   );
