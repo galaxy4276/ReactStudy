@@ -7,9 +7,7 @@ const ListOne = ({ todos, onRemove, onToggle }) => {
   return (
     <div className="List">
       {
-        todos.map(todo => (<Item key={ todo.id } 
-          todo={ todo } onRemove={ onRemove } onToggle={ onToggle }
-          />))
+        todos.map(todo => (<Item key={ todo.id } todo={ todo }/>))
       }
     </div>
   );

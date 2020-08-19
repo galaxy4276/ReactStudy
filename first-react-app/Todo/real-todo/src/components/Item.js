@@ -1,23 +1,23 @@
 import React from 'react';
-import '../styles/Item.scss';
 import {
   MdRemoveCircleOutline,
   MdCheckBoxOutlineBlank,
   MdCheckBox
 } from 'react-icons/md';
+import '../styles/Item.scss';
 import cl from 'classnames';
 
 
-const Item = ({ todo, onToggle, onRemove }) => {
-  const { text, id, checked } = todo;
+const Item = ({ todo }) => {
+  const { id, checked, text } = todo;
 
   return (
     <div className="Item">
-      <div className={cl("checkbox", { checked })} onClick={ () => onToggle(id) }>
+      <div className={cl("checkbox", { checked })}>
         { checked ? <MdCheckBox /> : <MdCheckBoxOutlineBlank /> }
         <div className="text">{ text }</div>
       </div>
-      <div className="remove" onClick={ () => onRemove(id) }>
+      <div className="remove">
         <MdRemoveCircleOutline />
       </div>
     </div>
