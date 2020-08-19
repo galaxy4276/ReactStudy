@@ -1,0 +1,49 @@
+.Item {
+  
+  display: flex;
+  padding: 1rem;
+  font-size: 1.4rem;
+
+  &:nth-child(even) {
+    background: rgb(245, 245, 245);
+  }
+
+  & + & {
+    border-top: 1px solid rgb(223, 223, 223);
+  }
+  
+  .checkbox {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    
+    .text {
+      user-select: none;
+      margin-left: 0.5rem;
+    }
+
+    &.checked {
+      svg {
+        cursor: pointer;
+        color: #32e0c4;
+      }
+
+      text-decoration: line-through;
+      color: #bebebe;
+    }
+  }
+
+  .remove {
+    display: flex;
+    align-items: center;
+
+    svg {
+      cursor: pointer;
+      color: #ff7171;
+
+      &:hover {
+        color:#f83b3b;
+      }
+    }
+  }
+}

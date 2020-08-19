@@ -3,14 +3,16 @@ import '../styles/List.scss';
 import Item from './Item';
 
 
-const List = ({ todos }) => {
+const ListOne = ({ todos, onRemove, onToggle }) => {
   return (
-    <div>
+    <div className="List">
       {
-        todos.map(todo => (<Item key={ todo.id } text={ todo.text }/>))
+        todos.map(todo => (<Item key={ todo.id } 
+          todo={ todo } onRemove={ onRemove } onToggle={ onToggle }
+          />))
       }
     </div>
   );
 };
 
-export default List;
+export default ListOne;

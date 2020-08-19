@@ -2,7 +2,7 @@ import React, { useState, useCallback } from 'react';
 import '../styles/Insert.scss';
 import { MdAdd } from 'react-icons/md';
 
-const Insert = () => {
+const Insert = ({ onInsert }) => {
   const [value, setValue] = useState('');
 
   const onChange = useCallback(
@@ -11,17 +11,26 @@ const Insert = () => {
     }, []
   );
 
+  const onSubmit = useCallback(
+    e => {
+      onInsert(value);
+      setValue('');
+      e.preventDefault();
+    }, [onInsert, value]
+  );
+
 
   return (
-    <div className="Insert">
+    <form className="Insert" onSubmit={ onSubmit }>
       <input placeholder="할 일을 입력하세요." 
         onChange={ onChange }
+        value={ value }
       />
-      <button type="submit">
+      <button type="submit" onClick={ onSubmit }>
         <MdAdd />
       </button>
-    </div>
-  );
+    </form>
+  );  
 };
 
 export default Insert;
