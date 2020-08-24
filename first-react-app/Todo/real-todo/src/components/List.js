@@ -3,7 +3,7 @@ import '../styles/List.scss';
 import Item from './Item';
 
 
-const List = ({ todos }) => {
+const ListOne = ({ todos, onRemove, onToggle }) => {
   return (
     <div className="List">
       {
@@ -13,4 +13,4 @@ const List = ({ todos }) => {
   );
 };
 
-export default List;
+export default ListOne;

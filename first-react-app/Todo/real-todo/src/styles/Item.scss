@@ -1,4 +1,37 @@
 .Item {
+<<<<<<< HEAD
+  
+  display: flex;
+  padding: 1rem;
+  font-size: 1.4rem;
+
+  &:nth-child(even) {
+    background: rgb(245, 245, 245);
+  }
+
+  & + & {
+    border-top: 1px solid rgb(223, 223, 223);
+  }
+  
+  .checkbox {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    
+    .text {
+      user-select: none;
+      margin-left: 0.5rem;
+    }
+
+    &.checked {
+      svg {
+        cursor: pointer;
+        color: #32e0c4;
+      }
+
+      text-decoration: line-through;
+      color: #bebebe;
+=======
   display: flex;
   padding: 1rem;
   font-size: 1.3rem;
@@ -27,6 +60,7 @@
       }
       text-decoration: line-through;
       color: #bdbdbd;;
+>>>>>>> react/master
     }
   }
 
@@ -35,11 +69,19 @@
     align-items: center;
 
     svg {
+<<<<<<< HEAD
+      cursor: pointer;
+      color: #ff7171;
+
+      &:hover {
+        color:#f83b3b;
+=======
       font-size: 1.4rem;
       color: #ff7171;
 
       &:hover {
         color: #ffb3b3;
+>>>>>>> react/master
       }
     }
   }

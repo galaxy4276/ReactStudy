@@ -16,7 +16,7 @@ const Insert = ({ onInsert }) => {
       onInsert(value);
       setValue('');
       e.preventDefault();
-    }, [value, onInsert]
+    }, [onInsert, value]
   );
 
 
@@ -24,12 +24,13 @@ const Insert = ({ onInsert }) => {
     <form className="Insert" onSubmit={ onSubmit }>
       <input placeholder="할 일을 입력하세요." 
         onChange={ onChange }
+        value={ value }
       />
       <button type="submit" onClick={ onSubmit }>
         <MdAdd />
       </button>
     </form>
-  );
+  );  
 };
 
 export default Insert;

@@ -1,22 +1,11 @@
-import React, { useState, useCallback, useRef } from 'react';
+import React, { useCallback, useRef, useReducer } from 'react';
 import Template from './components/Template';
 import Insert from './components/Insert';
-import List from './components/List';
+import ListOne from './components/List';
 
 
 function App() {
-  const [todos, setTodos] = useState([
-    {
-      id: 1,
-      text: '테스트용 Developed By React Web FrameWork',
-      checked: false,
-    },
-    {
-      id: 2,
-      text: '테스트용 Developed By React Web FrameWork',
-      checked: true,
-    }
-  ]);
+  const [todos, dispatch] = useReducer(todoReducer, undefined, createBulkTodos); 
 
   const nextId = useRef(2501);
 
