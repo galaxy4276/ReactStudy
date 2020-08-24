@@ -1,0 +1,46 @@
+
+.header {
+  display: flex;
+  align-items: center;
+  height: 3rem;
+  width: 100%;
+  background: #d54062;
+  color: white;
+  font-family: 'Noto Sans KR';
+  font-weight: 500s;
+
+  .header-title {
+    margin-left: 1rem;
+    display: flex;
+    align-items: center;
+
+    svg {
+      font-size: 2rem;
+    }
+
+    span { margin-left: 0.5rem; }
+    flex: 1;
+  }
+
+  nav {
+    display: flex;
+    
+    ul {
+      display: flex;
+
+      li {
+        margin-left: 1rem;
+
+        &:nth-child(2) {
+          margin-right: 1rem;
+        }
+        
+      }
+    }
+  }
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}

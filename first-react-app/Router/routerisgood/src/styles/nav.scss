@@ -1,0 +1,22 @@
+.side-nav {
+  width: 15rem;
+  background: #b32c4b;
+  color: white;
+  font-family: 'Noto Sans KR';
+  font-family: 300;
+
+  nav {
+    display: flex;
+    flex-direction: column;
+  }
+  
+
+  a {
+    padding: 0.6rem;
+    border-bottom: 1px solid #911d38;
+
+    &:hover {
+      background: #cc375a;
+    }
+  }
+}

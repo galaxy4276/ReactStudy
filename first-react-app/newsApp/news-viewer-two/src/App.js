@@ -1,24 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import axios from 'axios';
 
 function App() {
+  const [data, setData] = useState(null);
+
+  const onClick = async () => {
+    try {
+      const response = await axios.get(
+        'http://newsapi.org/v2/top-headlines?country=kr&apiKey=ae612e97d74842a1af322f3ab643944b'
+      );
+      setData(response);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <div>
+        <button onClick={onClick}>불러오기</button>
+      </div>
+      {data && <textarea rows={10} value={JSON.stringify(data, null, 2)} />}
     </div>
   );
 }
