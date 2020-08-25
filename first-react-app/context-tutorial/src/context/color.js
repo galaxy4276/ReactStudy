@@ -1,4 +1,4 @@
-import { createContext, useState } from 'react';
+import React, { createContext, useState } from 'react';
 
 
 const ColorContext = createContext({
@@ -23,6 +23,9 @@ const ColorProvider = ({ children }) => {
   );
 };
 
+const { Consumer: ColorConsumer } = ColorContext;
+
+export { ColorConsumer, ColorProvider };
 
 
-export default ColorContext;
+export default ColorContext;  
