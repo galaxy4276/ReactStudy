@@ -44,6 +44,10 @@ function reducer(state = initialState, action) {
       return state;
   }
 }
+const listener = () => {
+  console.log('상태가 업데이트됨');
+}
+
 
 const store = createStore(reducer);
 
@@ -61,10 +65,20 @@ const render = () => {
 
 render();
 
-const listener = () => {
-  console.log('상태가 업데이트됨');
+store.subscribe(render);
+
+
+// dispatch
+
+divToggle.onclick = () => {
+  console.log('divToggle Clicked!');
+  store.dispatch(toggleSwitch());
+};
+
+btnIncrease.onclick = () => {
+  store.dispatch(increase(1));
+};
+
+btnDecrease.onclick = () => {
+  store.dispatch(decrease());
 }
-
-const unsubscribe = store.subscribe(listener);
-
-unsubscribe();

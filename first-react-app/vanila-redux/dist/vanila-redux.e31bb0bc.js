@@ -924,6 +924,10 @@ function reducer() {
   }
 }
 
+var listener = function listener() {
+  console.log('상태가 업데이트됨');
+};
+
 var store = (0, _redux.createStore)(reducer);
 
 var render = function render() {
@@ -939,14 +943,21 @@ var render = function render() {
 };
 
 render();
+store.subscribe(render); // dispatch
 
-var listener = function listener() {
-  console.log('상태가 업데이트됨');
+divToggle.onclick = function () {
+  console.log('divToggle Clicked!');
+  store.dispatch(toggleSwitch());
 };
 
-var unsubscribe = store.subscribe(listener);
-unsubscribe();
-},{"redux":"node_modules/redux/es/redux.js"}],"C:/Users/nabe8/AppData/Local/Yarn/Data/global/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+btnIncrease.onclick = function () {
+  store.dispatch(increase(1));
+};
+
+btnDecrease.onclick = function () {
+  store.dispatch(decrease());
+};
+},{"redux":"node_modules/redux/es/redux.js"}],"C:/Users/choieungi/AppData/Local/Yarn/Data/global/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -974,7 +985,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55313" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "14701" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -1150,5 +1161,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["C:/Users/nabe8/AppData/Local/Yarn/Data/global/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","index.js"], null)
+},{}]},{},["C:/Users/choieungi/AppData/Local/Yarn/Data/global/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","index.js"], null)
 //# sourceMappingURL=/vanila-redux.e31bb0bc.js.map
