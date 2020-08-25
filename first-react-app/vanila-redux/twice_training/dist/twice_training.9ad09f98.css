@@ -1,0 +1,14 @@
+#toggle {
+  border: 2px solid black;
+  width: 64px;
+  height: 64px;
+  border-radius: 32px;
+  box-sizing: border-box;
+  margin-bottom: 30px;
+}
+
+#toggle.active {
+  background: coral;
+}
+
+/*# sourceMappingURL=/twice_training.9ad09f98.css.map */

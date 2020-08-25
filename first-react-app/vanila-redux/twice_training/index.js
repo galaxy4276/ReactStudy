@@ -1,28 +1,32 @@
 import { createStore } from 'redux';
 
+// DOM
+const divToggle = document.querySelector('#toggle');
+const divIncreaseBtn = document.querySelector('#increase');
+const divDecreaseBtn = document.querySelector('#decrease');
+const divCounter = document.querySelector('#counter');
 
-const divToggle = document.querySelector('.toggle');
-const counter = document.querySelector('h1');
-const btnIncrease = document.querySelector('#increase');
-const btnDecrease = document.querySelector('#decrease');
 
-
-// action
+// Action Definiton
 const TOGGLE_SWITCH = 'TOGGLE_SWITCH';
 const INCREASE = 'INCREASE';
 const DECREASE = 'DECREASE';
 
-// Action Function
-const toggleSwitch = () => ({ type: TOGGLE_SWITCH });
-const increase = (difference) => ({ type: INCREASE, difference });
-const decrease = () => ({ type: DECREASE });
 
+// Action Creator
+const toggleSwitch = () => ({ type: TOGGLE_SWITCH });
+const increaseBtn = (differ) => ({ type: INCREASE, differ });
+const decreaseBtn = () => ({ type: DECREASE });
+
+
+// State init
 const initialState = {
   toggle: false,
   counter: 0
 };
 
 
+// reducer
 function reducer(state = initialState, action) {
   switch (action.type) {
     case TOGGLE_SWITCH:
@@ -33,7 +37,7 @@ function reducer(state = initialState, action) {
     case INCREASE:
       return {
         ...state,
-        counter: state.counter + action.difference
+        counter: state.counter + action.differ
       };
     case DECREASE:
       return {
@@ -41,16 +45,16 @@ function reducer(state = initialState, action) {
         counter: state.counter - 1
       };
     default:
-      return state;
+        return state;
   }
 }
-const listener = () => {
-  console.log('상태가 업데이트됨');
-}
 
 
+// store
 const store = createStore(reducer);
 
+
+// render
 const render = () => {
   const state = store.getState();
 
@@ -60,24 +64,17 @@ const render = () => {
     divToggle.classList.remove('active');
   }
 
-  counter.innerText = state.counter;
-}
+  divCounter.innerText = state.counter;
+};
 
 render();
 
 store.subscribe(render);
 
 
-// dispatch
-
-divToggle.onclick = () => {
-  store.dispatch(toggleSwitch());
-};
-
-btnIncrease.onclick = () => {
-  store.dispatch(increase(1));
-};
-
-btnDecrease.onclick = () => {
-  store.dispatch(decrease());
+// EventListner
+window.onload = () => {
+  divToggle.onclick = () => store.dispatch(toggleSwitch());
+  divIncreaseBtn.onclick = () => store.dispatch(increaseBtn(1));
+  divDecreaseBtn.onclick = () => store.dispatch(decreaseBtn());
 }

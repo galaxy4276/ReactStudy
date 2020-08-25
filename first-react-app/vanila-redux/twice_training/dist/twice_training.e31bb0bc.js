@@ -117,7 +117,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"node_modules/symbol-observable/es/ponyfill.js":[function(require,module,exports) {
+})({"../node_modules/symbol-observable/es/ponyfill.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -144,7 +144,7 @@ function symbolObservablePonyfill(root) {
 }
 
 ;
-},{}],"node_modules/symbol-observable/es/index.js":[function(require,module,exports) {
+},{}],"../node_modules/symbol-observable/es/index.js":[function(require,module,exports) {
 var global = arguments[3];
 "use strict";
 
@@ -175,7 +175,7 @@ if (typeof self !== 'undefined') {
 var result = (0, _ponyfill.default)(root);
 var _default = result;
 exports.default = _default;
-},{"./ponyfill.js":"node_modules/symbol-observable/es/ponyfill.js"}],"node_modules/redux/es/redux.js":[function(require,module,exports) {
+},{"./ponyfill.js":"../node_modules/symbol-observable/es/ponyfill.js"}],"../node_modules/redux/es/redux.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -855,7 +855,7 @@ function isCrushed() {}
 if ("development" !== 'production' && typeof isCrushed.name === 'string' && isCrushed.name !== 'isCrushed') {
   warning('You are currently using minified code outside of NODE_ENV === "production". ' + 'This means that you are running a slower development build of Redux. ' + 'You can use loose-envify (https://github.com/zertosh/loose-envify) for browserify ' + 'or setting mode to production in webpack (https://webpack.js.org/concepts/mode/) ' + 'to ensure you have the correct code for your production build.');
 }
-},{"symbol-observable":"node_modules/symbol-observable/es/index.js"}],"index.js":[function(require,module,exports) {
+},{"symbol-observable":"../node_modules/symbol-observable/es/index.js"}],"index.js":[function(require,module,exports) {
 "use strict";
 
 var _redux = require("redux");
@@ -866,14 +866,15 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-var divToggle = document.querySelector('.toggle');
-var counter = document.querySelector('h1');
-var btnIncrease = document.querySelector('#increase');
-var btnDecrease = document.querySelector('#decrease'); // action
+// DOM
+var divToggle = document.querySelector('#toggle');
+var divIncreaseBtn = document.querySelector('#increase');
+var divDecreaseBtn = document.querySelector('#decrease');
+var divCounter = document.querySelector('#counter'); // Action Definiton
 
 var TOGGLE_SWITCH = 'TOGGLE_SWITCH';
 var INCREASE = 'INCREASE';
-var DECREASE = 'DECREASE'; // Action Function
+var DECREASE = 'DECREASE'; // Action Creator
 
 var toggleSwitch = function toggleSwitch() {
   return {
@@ -881,23 +882,24 @@ var toggleSwitch = function toggleSwitch() {
   };
 };
 
-var increase = function increase(difference) {
+var increaseBtn = function increaseBtn(differ) {
   return {
     type: INCREASE,
-    difference: difference
+    differ: differ
   };
 };
 
-var decrease = function decrease() {
+var decreaseBtn = function decreaseBtn() {
   return {
     type: DECREASE
   };
-};
+}; // State init
+
 
 var initialState = {
   toggle: false,
   counter: 0
-};
+}; // reducer
 
 function reducer() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
@@ -911,7 +913,7 @@ function reducer() {
 
     case INCREASE:
       return _objectSpread(_objectSpread({}, state), {}, {
-        counter: state.counter + action.difference
+        counter: state.counter + action.differ
       });
 
     case DECREASE:
@@ -922,13 +924,10 @@ function reducer() {
     default:
       return state;
   }
-}
+} // store
 
-var listener = function listener() {
-  console.log('상태가 업데이트됨');
-};
 
-var store = (0, _redux.createStore)(reducer);
+var store = (0, _redux.createStore)(reducer); // render
 
 var render = function render() {
   var state = store.getState();
@@ -939,24 +938,26 @@ var render = function render() {
     divToggle.classList.remove('active');
   }
 
-  counter.innerText = state.counter;
+  divCounter.innerText = state.counter;
 };
 
 render();
-store.subscribe(render); // dispatch
+store.subscribe(render); // EventListner
 
-divToggle.onclick = function () {
-  store.dispatch(toggleSwitch());
-};
+window.onload = function () {
+  divToggle.onclick = function () {
+    return store.dispatch(toggleSwitch());
+  };
 
-btnIncrease.onclick = function () {
-  store.dispatch(increase(1));
-};
+  divIncreaseBtn.onclick = function () {
+    return store.dispatch(increaseBtn(1));
+  };
 
-btnDecrease.onclick = function () {
-  store.dispatch(decrease());
+  divDecreaseBtn.onclick = function () {
+    return store.dispatch(decreaseBtn());
+  };
 };
-},{"redux":"node_modules/redux/es/redux.js"}],"C:/Users/choieungi/AppData/Local/Yarn/Data/global/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"redux":"../node_modules/redux/es/redux.js"}],"C:/Users/choieungi/AppData/Local/Yarn/Data/global/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -984,7 +985,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "14701" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "2219" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -1161,4 +1162,4 @@ function hmrAcceptRun(bundle, id) {
   }
 }
 },{}]},{},["C:/Users/choieungi/AppData/Local/Yarn/Data/global/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","index.js"], null)
-//# sourceMappingURL=/vanila-redux.e31bb0bc.js.map
+//# sourceMappingURL=/twice_training.e31bb0bc.js.map
