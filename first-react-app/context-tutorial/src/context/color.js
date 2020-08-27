@@ -28,4 +28,4 @@ const { Consumer: ColorConsumer } = ColorContext;
 export { ColorConsumer, ColorProvider };
 
 
-export default ColorContext;  
+export default ColorContext;

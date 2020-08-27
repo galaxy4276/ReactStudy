@@ -9,9 +9,9 @@ const ColorBox = () => {
       <div 
         style={{
           width: '64px',
-          height: '64px',
-          background: state.color
-        }}
+            height: '64px',
+            background: state.color
+          }}
       />
       <div
         style={{

@@ -1,29 +1,19 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useState, useEffect, useCallback } from 'react';
 import NewsPage from './components/NewsPage';
+import { Route } from 'react-router-dom';
+import Categories from './components/Categories';
+
 
 function App() {
-  const [articles, setArticles] = useState(null);
-  const [loading, setLoading] = useState(false);
-
-
-  useEffect(async () => {
-    setLoading(true);
-
-    const fetchData = await axios.get('http://newsapi.org/v2/top-headlines?country=kr&apiKey=ae612e97d74842a1af322f3ab643944b');
-    setArticles(fetchData.data.articles);
-
-    setLoading(false);
-  });
- 
-  
-  if (loading === true) {
-    return <div>로딩 중입니다...</div>
-  } 
+  const [category, setCategory] = useState('all');
+  const onSelect = useCallback(category => setCategory(category), []);
 
   return (
-    <NewsPage articles={articles} />
-  )
+    <>
+      <Categories category={category} onSelect={onSelect} />
+      <NewsPage category={category} />
+    </>
+  );
 }
 
 
