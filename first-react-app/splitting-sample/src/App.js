@@ -1,26 +1,34 @@
-import React from 'react';
+import React, { Suspense, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import loadable from '@loadable/component';
 
-function App() {
+// const SplitMe = React.lazy(() => import('./SplitMe'));
+const SplitMe = loadable(() => import('./SplitMe'), {
+  fallback: <div>Loading...</div>
+});
+
+const App = () => {
+  const [visible, setVisible] = useState(false);
+
+  const onClick = () => {
+    setVisible(true);
+  };
+
+  const onMouseOver = () => {
+    SplitMe.preload();
+  };
+
   return (
-    <div className="App">
+    <div className="app">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <p onClick={onClick} onMouseOver={onMouseOver}>Hello React!</p>
+          {visible && <SplitMe />}
       </header>
     </div>
-  );
+  )
 }
+
 
 export default App;
